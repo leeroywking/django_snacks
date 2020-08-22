@@ -46,8 +46,8 @@ jobs:
       - name: Python Django Coverage GitHub Action
         uses: actions/python-django-coverage-gitHub-action@v1
         with:
-          django-app: 'sample_app'
-          minimum-coverage: '86'
+          django-app: 'django_snacks'
+          minimum-coverage: '50'
     #   - name: Test with pytest
     #     run: poetry run pytest --cov . --cov-fail-under=0
 
