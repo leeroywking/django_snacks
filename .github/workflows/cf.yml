@@ -41,5 +41,13 @@ jobs:
       - name: Code Quality
         run: poetry run black . --check
 
-      - name: Test with pytest
-        run: poetry run pytest --cov . --cov-fail-under=0
+    #   - name: Test with pytest
+    #     run: poetry run pytest --cov . --cov-fail-under=0
+
+      - name: Generate Coverage report
+        run: coverage run --source='.' manage.py test django_snacks
+
+      - name: Validate code coverage
+        run: coverage report --fail-under=60
+        
+        
