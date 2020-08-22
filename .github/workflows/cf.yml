@@ -42,12 +42,28 @@ jobs:
         run: poetry run black . --check
 
 
-      - name: Coverage check
-        uses: actions/checkout@v2
-        uses: actions/python-django-coverage-gitHub-action@v1
-        with:
-            django-app: 'sample_app'
-            minimum-coverage: '60'
+
+      - name: Python Django Coverage GitHub Action
+        inputs:
+          django-app:
+            description: "Application"
+            required: false
+            default: ""
+          minimum-coverage:
+            description: "Minimum allowed code coverage"
+            required: false
+            default: "50"  
+        description: 'Github Action to run tests and get coverage with Django on a Python Docker image'
+        branding:
+          icon: box
+          color: gray-dark
+        runs-on: ubuntu-latest
+        runs:
+          using: 'docker'
+          image: 'Dockerfile'
+          args:
+          - ${{ inputs.django-app }}
+          - ${{ inputs.minimum-coverage }}
     #   - name: Test with pytest
     #     run: poetry run pytest --cov . --cov-fail-under=0
 
