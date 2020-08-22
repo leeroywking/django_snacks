@@ -41,13 +41,20 @@ jobs:
       - name: Code Quality
         run: poetry run black . --check
 
-      - name: Test with pytest
-        run: poetry run pytest --cov . --cov-fail-under=0
 
-      - name: Generate Coverage report
-        run: coverage run --source='.' manage.py test django_snacks
+      - name: Coverage check
+        uses: actions/checkout@v2
+        uses: actions/python-django-coverage-gitHub-action@v1
+        with:
+            django-app: 'sample_app'
+            minimum-coverage: '60'
+    #   - name: Test with pytest
+    #     run: poetry run pytest --cov . --cov-fail-under=0
 
-      - name: Validate code coverage
-        run: coverage report --fail-under=60
+    #   - name: Generate Coverage report
+    #     run: coverage run --source='.' manage.py test django_snacks
+
+    #   - name: Validate code coverage
+    #     run: coverage report --fail-under=60
         
         
