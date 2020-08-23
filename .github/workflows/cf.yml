@@ -30,7 +30,7 @@ jobs:
 
       - name: Set Poetry config
         run: |
-          poetry config virtualenvs.in-project true
+          poetry config virtualenvs.in-project false
           poetry config virtualenvs.path ~/.virtualenvs
 
       - name: Install Dependencies
@@ -44,7 +44,7 @@ jobs:
         run: poetry run pytest --cov . --cov-fail-under=0
 
       - name: Generate Coverage report
-        run: coverage run --source='.' manage.py test django_snacks
+        run: poetry run coverage run --source='.' manage.py test django_snacks
 
       - name: Validate code coverage
-        run: coverage report --fail-under=60
+        run: poetry run coverage report --fail-under=60
