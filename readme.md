@@ -28,6 +28,9 @@ Enter the project folder and run
 ![application](./djangosnacks.png)
 ---
 
+### Coverage
+![coverage](./coverage.svg)
+
 ### Change Log
 1.0.0 - Implemented basic features
 
