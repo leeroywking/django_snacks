@@ -3,7 +3,6 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-
   test:
     runs-on: ubuntu-latest
 
@@ -41,20 +40,9 @@ jobs:
       - name: Code Quality
         run: poetry run black . --check
 
-
-
-      - name: Python Django Coverage GitHub Action
-        uses: actions/python-django-coverage-gitHub-action@v1
-        with:
-          django-app: 'django_snacks'
-          minimum-coverage: '50'
-    #   - name: Test with pytest
-    #     run: poetry run pytest --cov . --cov-fail-under=0
-
+      - name: Test with pytest
+        run: poetry run pytest --cov . --cov-fail-under=0
     #   - name: Generate Coverage report
     #     run: coverage run --source='.' manage.py test django_snacks
-
     #   - name: Validate code coverage
     #     run: coverage report --fail-under=60
-        
-        

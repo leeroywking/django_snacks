@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "snacks.apps.SnacksConfig",
-]
+    "snacks.apps.SnacksConfig"
+    ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -113,3 +113,38 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = "/static/"
+
+# # Specify the coverage test runner
+# COVERAGE_TEST_RUNNER = getattr(settings, 'COVERAGE_TEST_RUNNER',
+#                              'django_coverage.coverage_runner.CoverageRunner')
+
+# # Specify whether coverage data file is created or not.
+# COVERAGE_USE_CACHE = getattr(settings, 'COVERAGE_USE_CACHE', False)
+
+# # Specify the directory where you would like the coverage report to create
+# # the HTML files.
+# # You'll need to make sure this directory exists and is writable by the
+# # user account running the test.
+# # You should probably set this one explicitly in your own settings file.
+
+# #COVERAGE_REPORT_HTML_OUTPUT_DIR = '/my_home/test_html'
+# COVERAGE_REPORT_HTML_OUTPUT_DIR = getattr(settings,
+#                                           'COVERAGE_REPORT_HTML_OUTPUT_DIR',
+#                                           None)
+
+# # True => html reports by 55minutes
+# # False => html reports by coverage.py
+# COVERAGE_CUSTOM_REPORTS = getattr(settings, 'COVERAGE_CUSTOM_REPORTS', True)
+
+
+# # True => Always output coverage reports to STDOUT.
+# # False => Don't output coverage reports to STDOUT.
+# # (not set) => output coverage reports to STDOUT only if COVERAGE_REPORT_HTML_OUTPUT_DIR is not set or None.
+# #
+# # This makes it possible to both generate HTML reports and see coverage
+# # information on STDOUT.
+# COVERAGE_USE_STDOUT = getattr(settings, 'COVERAGE_USE_STDOUT', COVERAGE_REPORT_HTML_OUTPUT_DIR is None)
+
+# # The name of the folder within utils/coverage_report/badges/ that
+# # contains the badges we want to use.
+# COVERAGE_BADGE_TYPE = getattr(settings, 'COVERAGE_BADGE_TYPE', 'drone.io')
