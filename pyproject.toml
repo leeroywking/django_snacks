@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "django_snacks"
-version = "0.1.0"
+version = "0.1.1"
 description = "django app to practice inheritance of html components"
 authors = ["Lee-Roy King <leeroywking@gmail.com>"]
 license = "MIT"
